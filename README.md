@@ -19,11 +19,12 @@ O algoritmo do jogo de adivinhação apresenta as seguintes características:
 - Utilização da classe `Math.random` para gerar números aleatórios.
 - Interface gráfica simples desenvolvida com o uso da biblioteca Swing.
 
-### Exemplo de Execução
+## Screenshot do programa em execução
 
-Aqui está um exemplo de como o jogo funciona:
 
-![Exemplo do Jogo de Adivinhação](exemplo-simples.png)
 
+<p align="center">
+  <img width = "400px "src="https://github.com/KrodrigoDev/JavaTraining/assets/126525471/f0c48881-20e4-4350-ad20-9c388bf7e746">
+</p>
 
 
