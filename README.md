@@ -14,7 +14,7 @@ O repositório contém uma variedade de arquivos e projetos para ajudar no seu a
 
 O algoritmo do jogo de adivinhação apresenta as seguintes características:
 
-- Utilização de operador ternário para verificar se o número gerado é o mesmo escolhido pelo jogador
+- Utilização de operador `ternário` para verificar se o número gerado é o mesmo escolhido pelo jogador
 - Utilização de estruturas de controle, como `switch` para que o usuário possa esolher a dificuldade
 - Utilização da classe `Math.random` para gerar números aleatórios.
 - Interface gráfica simples desenvolvida com o uso da biblioteca Swing.
