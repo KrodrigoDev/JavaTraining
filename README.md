@@ -21,10 +21,8 @@ O algoritmo do jogo de adivinhação apresenta as seguintes características:
 
 ## Screenshot do programa em execução
 
-
-
 <p align="center">
-  <img width = "400px "src="https://github.com/KrodrigoDev/JavaTraining/assets/126525471/f0c48881-20e4-4350-ad20-9c388bf7e746">
+  <img width = "400px "src="https://github.com/KrodrigoDev/JavaTraining/assets/126525471/d2297c6a-a982-4061-b8de-0f6961b68ced">
 </p>
 
 
