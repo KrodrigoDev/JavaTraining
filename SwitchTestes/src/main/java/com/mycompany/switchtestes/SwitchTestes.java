@@ -1,18 +1,19 @@
 package com.mycompany.switchtestes;
 
 import java.util.Scanner;
-
 /**
- *
+ * 
+ * Este programa será para testes 
+ * 
  * @author Kauã Rodrigo
+ * 
  */
 public class SwitchTestes {
 
     public static void main(String[] args) {
        
         Scanner teclado = new Scanner(System.in);
-        
-        
+          
         System.out.print("Quantas pernas ? ");
         int pernas = teclado.nextInt();
         
@@ -43,5 +44,7 @@ public class SwitchTestes {
         }
         
         System.out.println(tipo);
+        
     }
+    
 }
