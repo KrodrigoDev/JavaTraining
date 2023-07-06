@@ -6,7 +6,7 @@ import java.util.Scanner;
  *
  * @author Kauã Rodrigo
  */
-public class Testes {
+public class WhileTestes {
 
     public static void main(String[] args) {
         

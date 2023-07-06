@@ -9,12 +9,19 @@ package com.mycompany.jogodaadivinhacao;
  * @author Kauã Rodrigo
  */
 public class Game extends javax.swing.JFrame {
-   
+
+    int pontos = 10;
+
     public Game() {
         initComponents();
         gerarNumeroAleatorio(0);
-       
+
+        pontosJogo.setText(Integer.toString(pontos));
+        
+        bntReiniciar.setVisible(false);
+
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,6 +39,9 @@ public class Game extends javax.swing.JFrame {
         spinnerValor = new javax.swing.JSpinner();
         bntPalpite = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        pontosJogo = new javax.swing.JLabel();
+        bntReiniciar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -67,6 +77,20 @@ public class Game extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 0, 0));
         jLabel4.setText("Dificuldade:");
 
+        jLabel2.setText("Pontos :");
+
+        pontosJogo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        pontosJogo.setForeground(new java.awt.Color(0, 51, 255));
+        pontosJogo.setText("0");
+
+        bntReiniciar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        bntReiniciar.setText("Reiniciar");
+        bntReiniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntReiniciarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,17 +98,24 @@ public class Game extends javax.swing.JFrame {
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(textFrase, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(74, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pontosJogo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(spinnerDificuldade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGap(63, 63, 63))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(bntReiniciar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
@@ -105,15 +136,19 @@ public class Game extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spinnerDificuldade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel2)
+                    .addComponent(pontosJogo))
+                .addGap(36, 36, 36)
                 .addComponent(textFrase, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(spinnerValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bntPalpite)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bntPalpite)
+                    .addComponent(bntReiniciar))
                 .addGap(14, 14, 14))
         );
 
@@ -122,7 +157,7 @@ public class Game extends javax.swing.JFrame {
 
     private void bntPalpiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntPalpiteActionPerformed
         // TODO add your handling code here:
-        
+
         int dif = Integer.parseInt(spinnerDificuldade.getValue().toString());
         double valorAle = gerarNumeroAleatorio(dif);
 
@@ -130,19 +165,42 @@ public class Game extends javax.swing.JFrame {
         int valor = Integer.parseInt(spinnerValor.getValue().toString());
 
         String r1 = "<html>Você Acertou, meus parabêns !</html>";
-        String r2 = "<html>Errou ! Eu pensei no número <strong> " + valorInt + " </strong> </html>" ;
-        String jogoRes = (valor == valorInt) ? r1 : r2;
+        String r2 = "<html>Errou ! Eu pensei no número <strong> " + valorInt + " </strong> </html>";
 
-        textFrase.setText(jogoRes);
+        if (valor == valorInt) {
+            pontos += 5;
+            pontosJogo.setText(Integer.toString(pontos));
+            textFrase.setText(r1);
+        } else {
+            pontos -=1;
+            pontosJogo.setText(Integer.toString(pontos));
+            textFrase.setText(r2);
+            
+            if (pontos == 0) {
+                bntReiniciar.setVisible(true);
+                
+                textFrase.setText("Fim do jogo");
+            }
+        }
+
     }//GEN-LAST:event_bntPalpiteActionPerformed
 
     private void spinnerDificuldadeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerDificuldadeStateChanged
         // TODO add your handling code here: 
-        
+
         int dif = Integer.parseInt(spinnerDificuldade.getValue().toString());
         gerarNumeroAleatorio(dif);
-    
+
     }//GEN-LAST:event_spinnerDificuldadeStateChanged
+
+    private void bntReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntReiniciarActionPerformed
+        // TODO add your handling code here:
+        
+        pontos = 10;
+        
+        textFrase.setText("Boa sorte, Perdedor");
+        bntReiniciar.setVisible(false);
+    }//GEN-LAST:event_bntReiniciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,39 +239,42 @@ public class Game extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntPalpite;
+    private javax.swing.JButton bntReiniciar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel pontosJogo;
     private javax.swing.JSpinner spinnerDificuldade;
     private javax.swing.JSpinner spinnerValor;
     private javax.swing.JLabel textFrase;
     // End of variables declaration//GEN-END:variables
 
     private double gerarNumeroAleatorio(int dif) {
-        
-    double valorAle = 0;
-    
-    switch (dif) {
-        case 1: 
-            valorAle = 0 + Math.random() * (10 - 0);
-            textFrase.setText("<html>Vou pensar em um número entre <strong>0</strong> e <strong>10</strong></html>");
-            break;
-        case 2: 
-            valorAle = 0 + Math.random() * (20 - 0);
-            textFrase.setText("<html>Vou pensar em um número entre <strong>0</strong> e <strong>20</strong></html>");
-            break;
-        case 3: 
-            valorAle = 0 + Math.random() * (30 - 0);
-            textFrase.setText("<html>Vou pensar em um número entre <strong>0</strong> e <strong>30</strong></html>");
-            break;
-        case 0 :
-            textFrase.setText("<html>Escolha uma dificuldade ! </html>");
-            break;
+
+        double valorAle = 0;
+
+        switch (dif) {
+            case 1:
+                valorAle = 0 + Math.random() * (10 - 0);
+                textFrase.setText("<html>Vou pensar em um número entre <strong>0</strong> e <strong>10</strong></html>");
+                break;
+            case 2:
+                valorAle = 0 + Math.random() * (20 - 0);
+                textFrase.setText("<html>Vou pensar em um número entre <strong>0</strong> e <strong>20</strong></html>");
+                break;
+            case 3:
+                valorAle = 0 + Math.random() * (30 - 0);
+                textFrase.setText("<html>Vou pensar em um número entre <strong>0</strong> e <strong>30</strong></html>");
+                break;
+            case 0:
+                textFrase.setText("<html>Escolha uma dificuldade ! </html>");
+                break;
+        }
+
+        return valorAle;
+
     }
-    
-    return valorAle;
-    
-    }
-    
+
 }

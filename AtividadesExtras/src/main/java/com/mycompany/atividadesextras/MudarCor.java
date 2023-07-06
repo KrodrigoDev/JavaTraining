@@ -33,8 +33,11 @@ public class MudarCor extends javax.swing.JFrame {
 
         bntCorFundo = new javax.swing.JButton();
         corAtual = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bntCorFundo.setText("Mudar Cor de Fundo");
         bntCorFundo.addActionListener(new java.awt.event.ActionListener() {
@@ -42,32 +45,24 @@ public class MudarCor extends javax.swing.JFrame {
                 bntCorFundoActionPerformed(evt);
             }
         });
+        getContentPane().add(bntCorFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 199, -1, -1));
 
         corAtual.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         corAtual.setText("Cor");
+        getContentPane().add(corAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 103, 71, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(bntCorFundo)
-                .addContainerGap(40, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(corAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
-                .addComponent(corAtual)
-                .addGap(76, 76, 76)
-                .addComponent(bntCorFundo)
-                .addGap(82, 82, 82))
-        );
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 191, 10));
+
+        jTextField1.setBackground(new java.awt.Color(51, 153, 255));
+        jTextField1.setBorder(null);
+        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 190, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -90,6 +85,10 @@ public class MudarCor extends javax.swing.JFrame {
         corAtual.setText(Integer.toString(random.getRGB()));
         
     }//GEN-LAST:event_bntCorFundoActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,5 +128,7 @@ public class MudarCor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntCorFundo;
     private javax.swing.JLabel corAtual;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
