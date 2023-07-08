@@ -97,17 +97,15 @@ public class Fatorial extends javax.swing.JFrame {
         
         String passoAPasso = ""; // Variável para armazenar o passo a passo
 
-        int contador = valor;
-
-        while (contador >= 1) {
-            fatorialValor *= contador;
-            passoAPasso += contador; // Adiciona o valor atual ao passo a passo
-
-            if (contador > 1) {
+        while (valor >= 1) {
+            fatorialValor *= valor;
+            passoAPasso += valor; // Adiciona o valor atual ao passo a passo
+            
+            if (valor > 1) {
                 passoAPasso += " x "; // Adiciona o símbolo de multiplicação, exceto no último passo
             }
 
-            contador--;
+            valor--;
         }
 
         resFatorial.setText(passoAPasso + " = " + fatorialValor);
