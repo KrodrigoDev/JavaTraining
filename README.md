@@ -4,9 +4,9 @@ Este repositório é dedicado ao armazenamento de arquivos básicos de treinamen
 
 ## Conteúdo do Repositório
 
-O repositório contém uma variedade de arquivos e projetos para ajudar no seu aprendizado de Java. incluindo:
+O repositório contém uma variedade de arquivos e projetos que ajudaram no meu aprendizado na linguagem Java.
 
-### Jogo de Adivinhação 🎮🔢
+### Exemplo : Jogo de Adivinhação 🎮🔢
 
  O objetivo é adivinhar um número aleatório gerado pelo algoritmo, utilizando uma combinação de lógica de programação e recursos da linguagem Java.
 
